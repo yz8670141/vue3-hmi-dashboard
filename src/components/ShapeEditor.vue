@@ -14,7 +14,7 @@
     </div>
 
     <!-- 右側編輯元件 -->
-    <transition name="fade" mode="out-in">
+    <!-- <transition name="fade" mode="out-in"> -->
       <div :key="selectedShape?.id">
         <template v-if="selectedShape">
           <CommonShapeEditor :shape="selectedShape" @update="updateShared" />
@@ -24,7 +24,7 @@
         </template>
         <div v-else class="text-muted">請選擇一個圖形進行編輯</div>
       </div>
-    </transition>
+    <!-- </transition> -->
   </div>
 </template>
 

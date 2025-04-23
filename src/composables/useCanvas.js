@@ -2,25 +2,31 @@ import { ref, onMounted, onUnmounted, markRaw } from "vue";
 import * as fabric from "fabric"; // ✅ 對的！
 import { useShapeStore } from "../stores/shapeStore.js";
 import { useCanvasEvents } from "../composables/useShapeEvents.js";
-export function useCanvas() {
+
+export function useCanvas(canvasWrapperRef) {
   const canvas = ref(null);
   const shapeStore = useShapeStore();
   const { handleSelection, clearSelection } = useCanvasEvents(shapeStore);
+
   const initCanvas = () => {
     const el = document.getElementById("hmi-canvas");
-    if (!el) {
+    if (!el && wrapperEl) {
       console.warn("⚠️ 找不到 #hmi-canvas");
       return;
     }
+    const canvasWidth = canvasWrapperRef.value.clientWidth;
+    const canvasHeight = canvasWrapperRef.value.clientHeight;
+
     canvas.value = markRaw(
       new fabric.Canvas("hmi-canvas", {
-        width: 800,
-        height: 600,
         backgroundColor: "#dedede",
         selection: true,
       })
     );
+    canvas.value.setWidth(canvasWidth);
+    canvas.value.setHeight(canvasHeight);
     canvas.value.renderAll();
+
     canvas.value.on("selection:created", handleSelection);
     canvas.value.on("selection:updated", handleSelection);
     canvas.value.on("selection:cleared", clearSelection);

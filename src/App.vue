@@ -8,9 +8,9 @@
 </script>
 
 <style>
-/* 可選：設定背景或全域樣式 */
-body {
+html, body, #app {
+  height: 100%;
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 0;
 }
 </style>

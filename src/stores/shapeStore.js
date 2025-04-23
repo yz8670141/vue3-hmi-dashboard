@@ -27,10 +27,10 @@ export const useShapeStore = defineStore("shapeStore", {
         ref.set({ points: updates.points });
         ref.dirty = true;
         ref._calcDimensions();
-        ref.setCoords();
+
         shape.points = updates.points;
       }
-
+      ref.setCoords();
       ref.canvas?.renderAll();
     },
     setSelectedId(id) {
