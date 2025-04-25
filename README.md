@@ -24,27 +24,29 @@
 
 ## 🗂️ 專案架構說明
 
+```plaintext
 📦 src/
 ├── assets/
 ├── components/
-│ ├── Toolbar.vue # 左側操作工具列
-│ ├── ShapeEditor.vue # 圖形編輯器總容器
-│ ├── CommonShapeEditor.vue # 共通屬性欄位（x/y 座標、填色）
-│ ├── RectEditor.vue # 矩形專屬屬性表單（width, height）
-│ ├── CircleEditor.vue # 圓形專屬屬性表單（radius）
-│ ├── PolygonEditor.vue # 多邊形編輯表單（點位管理）
+│   ├── Toolbar.vue            # 左側操作工具列
+│   ├── ShapeEditor.vue        # 圖形編輯器總容器
+│   ├── CommonShapeEditor.vue  # 共通屬性欄位（x/y 座標、填色）
+│   ├── RectEditor.vue         # 矩形專屬屬性表單（width, height）
+│   ├── CircleEditor.vue       # 圓形專屬屬性表單（radius）
+│   ├── PolygonEditor.vue      # 多邊形編輯表單（點位管理）
 ├── composables/
-│ ├── useCanvas.js # 初始化與掛載 fabric canvas
-│ ├── useShapeManager.js # 新增圖形並存入 Pinia
-│ ├── useShapeEvents.js # 綁定圖形事件（移動、縮放後更新資料）
-│ ├── useCanvasExporter.js # 匯出 canvas JSON
-│ └── fabricDefaults.js # 共用圖形樣式設定
+│   ├── useCanvas.js           # 初始化與掛載 fabric canvas
+│   ├── useShapeManager.js     # 新增圖形並存入 Pinia
+│   ├── useShapeEvents.js      # 綁定圖形事件（移動、縮放後更新資料）
+│   ├── useCanvasExporter.js   # 匯出 canvas JSON
+│   └── fabricDefaults.js      # 共用圖形樣式設定
 ├── stores/
-│ └── shapeStore.js # Pinia 儲存圖形資料與編輯同步
+│   └── shapeStore.js          # Pinia 儲存圖形資料與編輯同步
 ├── views/
-│ └── CanvasView.vue # 主畫布編輯頁面
+│   └── CanvasView.vue         # 主畫布編輯頁面
 ├── App.vue
 └── main.js
+```
 
 ## 🖼️ 畫面預覽
 
